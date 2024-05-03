@@ -35,4 +35,16 @@ userRouter.post('/users', (req, res) => {
     user_data_1.mockUsers.push(newUser);
     return res.send(newUser);
 });
+// put requests
+userRouter.put('/users/:id', (req, res) => {
+    const { body, params: { id }, } = req;
+    const parsedId = parseInt(id);
+    if (isNaN(parsedId))
+        return res.sendStatus(400);
+    const findUserIndex = user_data_1.mockUsers.findIndex((user) => user.id === parsedId);
+    if (findUserIndex === -1)
+        return user_responses_1.userResponses.USER_NOT_FOUND;
+    user_data_1.mockUsers[findUserIndex] = Object.assign({ id: parsedId }, body);
+    return res.sendStatus(200);
+});
 exports.default = new routes_types_1.Route("/api", userRouter);
