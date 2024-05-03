@@ -34,4 +34,15 @@ userRouter.get("/user/:id", (req, res, next) => {
     return res.send(findUser);
 });
 
+// post requests
+
+userRouter.post('/users',(req,res)=>{
+    // console.log(req.body);
+    // return res.send(200);
+    const {body} = req;
+    const newUser = {id : mockUsers[mockUsers.length-1].id + 1,...body};
+    mockUsers.push(newUser);
+    return res.send(newUser);
+})
+
 export default new Route("/api", userRouter);
