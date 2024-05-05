@@ -12,5 +12,3 @@ const validator =
 	};
 
 export const body = (schema: Schema) => validator("body", schema);
-export const params = (schema: Schema) => validator("params", schema);
-export const query = (schema: Schema) => validator("query", schema);

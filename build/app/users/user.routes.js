@@ -38,6 +38,15 @@ userRouter.post("/", (req, res, next) => {
 });
 userRouter.put("/update", (req, res, next) => {
     try {
+        const result = user_service_1.default.putData(req.body);
+        res.send(new response_handler_1.ResponseHandler(result));
+    }
+    catch (e) {
+        next(e);
+    }
+});
+userRouter.patch("/edit", (req, res, next) => {
+    try {
         const result = user_service_1.default.updateOne(req.body);
         res.send(new response_handler_1.ResponseHandler(result));
     }
@@ -46,9 +55,6 @@ userRouter.put("/update", (req, res, next) => {
     }
 });
 userRouter.use(user_middlewares_1.loggingmiddleware);
-// userRouter.put(resolveIndexByUserById,(req,res)=>{
-// 	console.log("hello")
-// });
 userRouter.delete("/:id", (req, res, next) => {
     try {
         const result = user_service_1.default.deleteOne(req.params.id);

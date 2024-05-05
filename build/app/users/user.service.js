@@ -34,10 +34,17 @@ const deleteOne = (id) => {
         return user_responses_1.userResponses.DELETE_SUCCESSFUL;
     throw user_responses_1.userResponses.DELETE_FAILED;
 };
+const putData = (userData) => {
+    const didDelete = user_repo_1.default.putData(userData);
+    if (didDelete)
+        return user_responses_1.userResponses.UPDATE_SUCCESSFUL;
+    throw user_responses_1.userResponses.UPDATE_FAILED;
+};
 exports.default = {
     find,
     findOne,
     insertOne,
     updateOne,
     deleteOne,
+    putData
 };

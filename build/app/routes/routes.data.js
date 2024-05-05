@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.routes = void 0;
 const user_routes_1 = __importDefault(require("../users/user.routes"));
+const auth_route_1 = __importDefault(require("../auth/auth.route"));
 exports.routes = [
-    user_routes_1.default
+    user_routes_1.default, auth_route_1.default
 ];

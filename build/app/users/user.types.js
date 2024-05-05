@@ -9,6 +9,6 @@ const zod_1 = require("zod");
 // }
 exports.user = zod_1.z.object({
     id: zod_1.z.string(),
-    username: zod_1.z.string(),
-    displayName: zod_1.z.string()
+    username: zod_1.z.string().trim().min(1, { message: "Required" }),
+    displayName: zod_1.z.string().trim().min(1, { message: "Required" })
 });
