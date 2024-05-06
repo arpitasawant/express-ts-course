@@ -1,8 +1,6 @@
 import { Request, Response, NextFunction,Router } from "express";
 import { mockUsers } from "./user.data";
 
-const middlewareRouter = Router();
-
 export const loggingmiddleware = (req:Request,res:Response,next:NextFunction) => {
     console.log(`${req.method} - ${req.url}`)
     next();
@@ -35,4 +33,3 @@ export const resolveIndexByUserById = (req:Request,res:Response,next:NextFunctio
 //     }
 
 // )
-

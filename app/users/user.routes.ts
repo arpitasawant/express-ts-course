@@ -62,5 +62,4 @@ userRouter.delete("/:id", (req, res, next) => {
 	}
 });
 
-
 export default new Route("/user", userRouter);

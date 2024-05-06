@@ -1,10 +1,11 @@
 import { Application, json, NextFunction, Request, Response } from "express";
 import { ResponseHandler } from "../utilities/response-handler";
 import { routes } from "./routes.data";
+import cookieParser from "cookie-parser";
 
 export const registerMiddlewares = (app: Application) => {
     app.use(json());
-
+    app.use(cookieParser());
     for (let route of routes) {
         app.use(route.path, route.router);
     }

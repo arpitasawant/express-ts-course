@@ -1,9 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.resolveIndexByUserById = exports.loggingmiddleware = void 0;
-const express_1 = require("express");
 const user_data_1 = require("./user.data");
-const middlewareRouter = (0, express_1.Router)();
 const loggingmiddleware = (req, res, next) => {
     console.log(`${req.method} - ${req.url}`);
     next();

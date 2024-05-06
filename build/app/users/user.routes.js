@@ -64,4 +64,8 @@ userRouter.delete("/:id", (req, res, next) => {
         next(e);
     }
 });
+// userRouter.get("/cookie", (req, res, next) => {
+// 	res.cookie("hello","world",{maxAge:60000*60*2});
+//     res.status(201).send({msg:"Hello"});
+// });
 exports.default = new routes_types_1.Route("/user", userRouter);
