@@ -8,9 +8,18 @@ const express_1 = require("express");
 const response_handler_1 = require("../utilities/response-handler");
 const routes_data_1 = require("./routes.data");
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
+const express_session_1 = __importDefault(require("express-session"));
 const registerMiddlewares = (app) => {
     app.use((0, express_1.json)());
     app.use((0, cookie_parser_1.default)());
+    app.use((0, express_session_1.default)({
+        secret: 'my_secret',
+        saveUninitialized: false,
+        resave: false,
+        cookie: {
+            maxAge: 60000 * 60
+        }
+    }));
     for (let route of routes_data_1.routes) {
         app.use(route.path, route.router);
     }
